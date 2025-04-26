@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13' //
+}
+
+group = 'com.krushnatkhawale'
+version = '1.0-SNAPSHOT'
+
+javafx {
+    version = "17.0.10" // Use a recent, compatible JavaFX version (check latest)
+    modules = [ 'javafx.controls', 'javafx.fxml' ] // Add modules you need
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.pdfbox:pdfbox:3.0.2'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+application {
+    // Define the main class for the application plugin
+    mainClass = 'com.krushnatkhawale.App' // Your original main class
+    // If you want the JavaFX app to be the main entry point directly:
+    // mainClass = 'com.krushnatkhawale.PieChartApp'
+}
+test {
+    useJUnitPlatform()
+}
